@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>White Coders | Код. Дизайн. Результат.</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+			rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+		<link rel="stylesheet" href="./deep.css">
+	</head>
+
+	<body>
+		<div class="custom-cursor"></div>
+
+		<header>
+			<div class="logo">WHITE<span>CODERS</span></div>
+			<nav>
+				<div class="mobile-menu">
+					<ul>
+						<li><a href="#about">О нас</a></li>
+						<li><a href="#services">Услуги</a></li>
+						<li><a href="#cases">Кейсы</a></li>
+						<li><a href="#process">Процесс</a></li>
+						<li><a href="#contact">Контакты</a></li>
+						<li><a href="#faq">FAQ</a></li>
+
+					</ul>
+
+					<div class="controls">
+						<div class="theme-toggle" id="themeToggle">
+							<div class="toggle-knob"></div>
+						</div>
+					</div>
+				</div>
+
+				<button class="menu-toggle">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+			</nav>
+		</header>
+
+		<section class="hero">
+			<div class="code-bg" id="codeBackground"></div>
+			<div class="hero-content">
+				<h1 class="brutal-border">Код. Дизайн. Результат.</h1>
+				<p>Создаем цифровые продукты на стыке технологий и эстетики</p>
+				<a href="#contact" class="cta-button">Обсудить проект</a>
+			</div>
+		</section>
+
+		<section id="about" class="about">
+			<h2 class="section-title">О компании</h2>
+			<div class="about-content">
+				<p class="about-text">White Coders — команда экспертов, специализирующихся на создании современных цифровых
+					решений. Мы сочетаем передовые технологии с эстетикой дизайна для достижения измеримых результатов.</p>
+				<p class="about-text">Наш подход основан на глубоком понимании бизнес-процессов и пользовательского опыта.
+					Каждый проект проходит тщательный анализ и проработку деталей.</p>
+				<p class="about-text">С 2018 года мы реализовали более 50 проектов для клиентов из различных отраслей,
+					помогая им достигать стратегических целей с помощью цифровых инструментов.</p>
+			</div>
+		</section>
+
+		<section id="services" class="services">
+			<h2 class="section-title">Услуги</h2>
+			<div class="services-grid">
+				<div class="service-card animate-on-scroll">
+					<div class="service-icon">
+						<i class="fas fa-laptop-code"></i>
+					</div>
+					<h3 class="service-title">Веб-разработка</h3>
+					<p class="service-desc">Создание производительных веб-приложений с использованием современных стеков
+						технологий. От концепции до реализации и поддержки.</p>
+				</div>
+				<div class="service-card animate-on-scroll">
+					<div class="service-icon">
+						<i class="fas fa-mobile-alt"></i>
+					</div>
+					<h3 class="service-title">UI/UX Дизайн</h3>
+					<p class="service-desc">Проектирование интуитивных интерфейсов с фокусом на пользовательском опыте.
+						Исследования, прототипирование, тестирование.</p>
+				</div>
+				<div class="service-card animate-on-scroll">
+					<div class="service-icon">
+						<i class="fas fa-link"></i>
+					</div>
+					<h3 class="service-title">Blockchain решения</h3>
+					<p class="service-desc">Разработка децентрализованных приложений, смарт-контрактов и интеграция
+						блокчейн-технологий в существующие системы.</p>
+				</div>
+			</div>
+		</section>
+
+		<section id="cases" class="cases">
+			<h2 class="section-title">Кейсы</h2>
+			<div class="cases-grid">
+				<div class="case-card animate-on-scroll">
+					<div class="case-icon">
+						<i class="fas fa-chart-line"></i>
+					</div>
+					<h3 class="case-title">Fintech Dashboard</h3>
+					<p class="case-desc">Разработали интерактивную аналитическую панель для финансового стартапа с
+						возможностью интеграции с банковскими API и визуализацией данных в реальном времени.</p>
+					<div class="case-meta">
+						<span class="case-duration">3 месяца</span>
+						<a href="#" class="case-link">Подробнее</a>
+					</div>
+				</div>
+				<div class="case-card animate-on-scroll">
+					<div class="case-icon">
+						<i class="fas fa-shopping-cart"></i>
+					</div>
+					<h3 class="case-title">E-commerce Platform</h3>
+					<p class="case-desc">Создали масштабируемую платформу электронной коммерции с AI-рекомендациями товаров,
+						интегрированной системой оплаты и управления складом.</p>
+					<div class="case-meta">
+						<span class="case-duration">6 месяцев</span>
+						<a href="#" class="case-link">Подробнее</a>
+					</div>
+				</div>
+				<div class="case-card animate-on-scroll">
+					<div class="case-icon">
+						<i class="fas fa-palette"></i>
+					</div>
+					<h3 class="case-title">NFT Marketplace</h3>
+					<p class="case-desc">Реализовали децентрализованный маркетплейс для цифрового искусства на блокчейне с
+						поддержкой различных криптовалют и системой управления авторскими правами.</p>
+					<div class="case-meta">
+						<span class="case-duration">4 месяца</span>
+						<a href="#" class="case-link">Подробнее</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Добавляем после секции cases -->
+		<section id="process" class="process">
+			<h2 class="section-title">Как мы работаем</h2>
+			<div class="process-container">
+				<div class="process-track">
+					<div class="process-step">
+						<div class="step-icon">
+							<div class="step-pixel"></div>
+							<i class="fas fa-search"></i>
+						</div>
+						<div class="step-content">
+							<h3 class="step-title">Анализ</h3>
+							<p class="step-desc">Погружаемся в ваш бизнес, изучаем цели и анализируем конкурентов</p>
+						</div>
+					</div>
+
+					<div class="process-step">
+						<div class="step-icon">
+							<div class="step-pixel"></div>
+							<i class="fas fa-pencil-ruler"></i>
+						</div>
+						<div class="step-content">
+							<h3 class="step-title">Проектирование</h3>
+							<p class="step-desc">Создаем архитектуру решения и прототипы ключевых экранов</p>
+						</div>
+					</div>
+
+					<div class="process-step">
+						<div class="step-icon">
+							<div class="step-pixel"></div>
+							<i class="fas fa-palette"></i>
+						</div>
+						<div class="step-content">
+							<h3 class="step-title">Дизайн</h3>
+							<p class="step-desc">Разрабатываем визуальную концепцию и UI/UX решения</p>
+						</div>
+					</div>
+
+					<div class="process-step">
+						<div class="step-icon">
+							<div class="step-pixel"></div>
+							<i class="fas fa-code"></i>
+						</div>
+						<div class="step-content">
+							<h3 class="step-title">Разработка</h3>
+							<p class="step-desc">Пишем чистый код и создаем функциональный продукт</p>
+						</div>
+					</div>
+
+					<div class="process-step">
+						<div class="step-icon">
+							<div class="step-pixel"></div>
+							<i class="fas fa-vial"></i>
+						</div>
+						<div class="step-content">
+							<h3 class="step-title">Тестирование</h3>
+							<p class="step-desc">Проводим всестороннее тестирование на разных устройствах</p>
+						</div>
+					</div>
+
+					<div class="process-step">
+						<div class="step-icon">
+							<div class="step-pixel"></div>
+							<i class="fas fa-rocket"></i>
+						</div>
+						<div class="step-content">
+							<h3 class="step-title">Запуск</h3>
+							<p class="step-desc">Развертываем решение на боевых серверах и мониторим</p>
+						</div>
+					</div>
+
+					<div class="process-step">
+						<div class="step-icon">
+							<div class="step-pixel"></div>
+							<i class="fas fa-hands-helping"></i>
+						</div>
+						<div class="step-content">
+							<h3 class="step-title">Поддержка</h3>
+							<p class="step-desc">Обеспечиваем постоянную техническую поддержку и развитие</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="cta-section">
+			<h2>Готовы к сложным проектам?</h2>
+			<a href="#contact" class="cta-button">Начать сотрудничество</a>
+		</section>
+
+		<section id="contact" class="contact">
+			<h2 class="section-title">Контакты</h2>
+			<div class="contact-container">
+				<div class="contact-form">
+					<div class="form-group">
+						<input type="text" id="name" class="form-input" placeholder=" ">
+						<label for="name" class="form-label">Имя</label>
+					</div>
+					<div class="form-group">
+						<input type="email" id="email" class="form-input" placeholder=" ">
+						<label for="email" class="form-label">Email</label>
+					</div>
+					<div class="form-group">
+						<input type="text" id="subject" class="form-input" placeholder=" ">
+						<label for="subject" class="form-label">Тема</label>
+					</div>
+					<div class="form-group">
+						<textarea id="message" class="form-input" placeholder=" " rows="5"></textarea>
+						<label for="message" class="form-label">Сообщение</label>
+					</div>
+					<button type="submit" class="submit-btn">Отправить</button>
+				</div>
+				<div class="map-container">
+					<div class="pixel-map"></div>
+				</div>
+			</div>
+		</section>
+		<section id="faq" class="faq-section">
+			<h2 class="section-title">Часто задаваемые вопросы</h2>
+			<div class="faq-container">
+				<div class="faq-item">
+					<div class="faq-question">
+						<h3>Какой срок разработки типового проекта?</h3>
+						<div class="faq-toggle">
+							<span class="faq-icon">✕</span>
+						</div>
+					</div>
+					<div class="faq-answer">
+						<p>Срок разработки зависит от сложности проекта. В среднем, лендинг занимает 2-3 недели,
+							корпоративный сайт - 4-6 недель, веб-приложение - от 8 недель. Точные сроки определяются после
+							анализа требований.</p>
+					</div>
+				</div>
+
+				<div class="faq-item">
+					<div class="faq-question">
+						<h3>Какие технологии вы используете?</h3>
+						<div class="faq-toggle">
+							<span class="faq-icon">✕</span>
+						</div>
+					</div>
+					<div class="faq-answer">
+						<p>Мы работаем с современными технологиями: React, Vue.js, Node.js, Python/Django, PostgreSQL,
+							MongoDB. Для дизайна используем Figma, Adobe XD. Также специализируемся на блокчейн-решениях
+							(Solidity, Web3.js).</p>
+					</div>
+				</div>
+
+				<div class="faq-item">
+					<div class="faq-question">
+						<h3>Предоставляете ли вы поддержку после запуска?</h3>
+						<div class="faq-toggle">
+							<span class="faq-icon">✕</span>
+						</div>
+					</div>
+					<div class="faq-answer">
+						<p>Да, мы предлагаем различные варианты поддержки: от разовых исправлений до полноценного
+							абонентского обслуживания. Все наши проекты сопровождаются гарантией 3 месяца.</p>
+					</div>
+				</div>
+
+				<div class="faq-item">
+					<div class="faq-question">
+						<h3>Как происходит процесс оплаты?</h3>
+						<div class="faq-toggle">
+							<span class="faq-icon">✕</span>
+						</div>
+					</div>
+					<div class="faq-answer">
+						<p>Оплата делится на этапы: 30% предоплата, 40% после утверждения дизайна, 30% после сдачи проекта.
+							Возможны индивидуальные условия для крупных проектов. Принимаем банковские переводы и
+							криптовалюту.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<footer>
+			<div class="footer-content">
+				<div class="logo">WHITE<span>CODERS</span></div>
+				<div class="social-links">
+					<a href="#" class="social-link"><i class="fab fa-github"></i></a>
+					<a href="#" class="social-link"><i class="fab fa-behance"></i></a>
+					<a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+					<a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+				</div>
+				<p class="copyright">© 2023 White Coders. Все права защищены.</p>
+			</div>
+		</footer>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+		<script src='deep.js'></script>
+	</body>
+
+</html>

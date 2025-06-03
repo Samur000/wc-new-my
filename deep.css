@@ -12,6 +12,10 @@
 	--concrete-texture: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23000000' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
 }
 
+a {
+	text-decoration: none;
+}
+
 .dark-theme {
 	--border: 2px solid #ffffff;
 	--bg-primary: #121212;
@@ -345,16 +349,18 @@ section {
 	padding: 2.5rem;
 	border: var(--border);
 	box-shadow: var(--shadow);
-	transition: var(--transition);
+	transition: .3s ease-in-out;
 	position: relative;
 	overflow: hidden;
 	display: flex;
 	flex-direction: column;
+	transition: var(--transition);
 }
 
 .case-card:hover {
 	transform: translate(-8px, -8px);
 	box-shadow: 15px 15px 0px var(--accent);
+	transition: var(--transition);
 }
 
 .case-icon {
@@ -533,27 +539,83 @@ section {
 	background-color: #0f0f0f;
 }
 
-.pixel-map {
-	width: 100%;
+/* Contact Info Styles */
+.contact-info {
+	background-color: var(--bg-primary);
+	padding: 2.5rem;
+	border: var(--border);
+	box-shadow: var(--shadow);
 	height: 100%;
-	background: linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%),
-		linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%);
-	background-size: 20px 20px;
-	background-position: 0 0, 10px 10px;
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	flex-direction: column;
 }
 
-.pixel-map::before {
-	content: '55.7558° N, 37.6173° E';
-	font-family: 'IBM Plex Mono', monospace;
+.contact-info h3 {
+	font-size: 1.8rem;
+	font-weight: 700;
+	margin-bottom: 2rem;
+	text-transform: uppercase;
 	color: var(--accent);
-	font-size: 1.2rem;
+}
+
+.contact-list {
+	list-style: none;
+	margin-bottom: 2rem;
+	flex-grow: 1;
+}
+
+.contact-item {
+	margin-bottom: 1.5rem;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.contact-item i {
+	font-size: 1.5rem;
+	color: var(--accent);
+	width: 30px;
 	text-align: center;
-	padding: 2rem;
-	background-color: rgba(0, 0, 0, 0.7);
-	border: 2px solid var(--accent);
+}
+
+.contact-item a {
+	color: var(--text-primary);
+	text-decoration: none;
+	transition: var(--transition);
+	font-size: 1.1rem;
+}
+
+.contact-item a:hover {
+	color: var(--accent);
+}
+
+.contact-hours {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	margin-top: auto;
+	padding-top: 1.5rem;
+	border-top: var(--border);
+}
+
+.contact-hours i {
+	font-size: 1.5rem;
+	color: var(--accent);
+}
+
+.contact-hours p {
+	margin: 0;
+	color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+	.contact-container {
+		grid-template-columns: 1fr;
+	}
+
+	.contact-info {
+		margin-top: 2rem;
+	}
 }
 
 /* CTA Section */
@@ -761,6 +823,7 @@ footer {
 
 .faq-item:hover {
 	cursor: pointer;
+	transition: var(--transition);
 }
 
 .faq-item:hover {

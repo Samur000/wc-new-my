@@ -238,3 +238,59 @@ window.addEventListener('load', () => {
 		}
 	});
 });
+
+// Testimonials slider
+const testimonialsTrack = document.querySelector('.testimonials-track');
+const testimonialCards = document.querySelectorAll('.testimonial-card');
+const prevBtn = document.querySelector('.testimonial-prev');
+const nextBtn = document.querySelector('.testimonial-next');
+const dots = document.querySelectorAll('.dot');
+
+let currentIndex = 0;
+const totalSlides = testimonialCards.length;
+
+function updateSlider() {
+    testimonialsTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
+    
+    testimonialCards.forEach((card, index) => {
+        if (index === currentIndex) {
+            card.classList.add('active');
+        } else {
+            card.classList.remove('active');
+        }
+    });
+    
+    dots.forEach((dot, index) => {
+        if (index === currentIndex) {
+            dot.classList.add('active');
+        } else {
+            dot.classList.remove('active');
+        }
+    });
+}
+
+prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+    updateSlider();
+});
+
+nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    updateSlider();
+});
+
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        currentIndex = index;
+        updateSlider();
+    });
+});
+
+// Auto slide every 5 seconds
+setInterval(() => {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    updateSlider();
+}, 5000);
+
+// Initialize slider
+updateSlider();

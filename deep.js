@@ -198,3 +198,43 @@ function animateProcessSteps() {
 window.addEventListener('load', () => {
 	animateProcessSteps();
 });
+
+// Добавить в конец файла deep.js
+
+// Stats counter animation
+function animateStats() {
+	const statNumbers = document.querySelectorAll('.stat-number');
+	statNumbers.forEach(number => {
+		const target = +number.getAttribute('data-count');
+		const duration = 2000; // ms
+		const startTime = performance.now();
+		const startValue = 0;
+
+		const updateCounter = (currentTime) => {
+			const elapsedTime = currentTime - startTime;
+			if (elapsedTime < duration) {
+				const progress = elapsedTime / duration;
+				const currentValue = Math.floor(progress * target);
+				number.textContent = currentValue + (target > 50 ? '+' : '');
+				requestAnimationFrame(updateCounter);
+			} else {
+				number.textContent = target + (target > 50 ? '+' : '');
+			}
+		};
+
+		requestAnimationFrame(updateCounter);
+	});
+}
+
+// Инициализация после загрузки
+window.addEventListener('load', () => {
+	// Запускаем счетчики при появлении в области видимости
+	gsap.to('.stats', {
+		scrollTrigger: {
+			trigger: '.stats',
+			start: 'top 80%',
+			onEnter: animateStats,
+			once: true
+		}
+	});
+});

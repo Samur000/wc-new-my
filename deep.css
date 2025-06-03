@@ -1221,3 +1221,182 @@ footer {
 	opacity: 0.1;
 	z-index: 1;
 }
+
+/* Testimonials Section */
+.testimonials {
+	background-color: var(--bg-secondary);
+	border-top: var(--border);
+	border-bottom: var(--border);
+	padding: 8rem 5%;
+	position: relative;
+}
+
+.testimonials-container {
+	max-width: 1000px;
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+}
+
+.testimonials-track {
+	display: flex;
+	transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.testimonial-card {
+	flex: 0 0 100%;
+	background-color: var(--bg-primary);
+	padding: 2.5rem;
+	border: var(--border);
+	box-shadow: var(--shadow);
+	transition: all 0.4s ease;
+	opacity: 0.3;
+	transform: scale(0.9);
+	min-height: 350px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.testimonial-card.active {
+	opacity: 1;
+	transform: scale(1);
+	box-shadow: 15px 15px 0px var(--accent);
+}
+
+.client-info {
+	display: flex;
+	align-items: center;
+	margin-bottom: 1.5rem;
+}
+
+.client-avatar {
+	width: 70px;
+	height: 70px;
+	background-color: var(--accent);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: var(--border);
+	margin-right: 1.5rem;
+}
+
+.client-avatar i {
+	font-size: 2rem;
+	color: var(--bg-primary);
+}
+
+.client-name {
+	font-size: 1.5rem;
+	font-weight: 700;
+	margin-bottom: 0.3rem;
+}
+
+.client-company {
+	color: var(--accent);
+	font-family: 'IBM Plex Mono', monospace;
+	font-weight: 500;
+	font-size: 0.9rem;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.testimonial-content {
+	flex-grow: 1;
+	margin-bottom: 1.5rem;
+}
+
+.testimonial-content p {
+	font-size: 1.1rem;
+	line-height: 1.7;
+	color: var(--text-secondary);
+	position: relative;
+	padding-left: 1.5rem;
+}
+
+.testimonial-content p::before {
+	content: '"';
+	position: absolute;
+	top: -0.8rem;
+	left: 0;
+	font-size: 3rem;
+	color: var(--accent);
+	font-family: Georgia, serif;
+	line-height: 1;
+}
+
+.testimonial-rating {
+	display: flex;
+	gap: 0.3rem;
+	color: var(--accent);
+	font-size: 1.2rem;
+	border-top: var(--border);
+	padding-top: 1.5rem;
+}
+
+.testimonials-nav {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 2rem;
+	gap: 1rem;
+}
+
+.testimonial-prev,
+.testimonial-next {
+	width: 50px;
+	height: 50px;
+	background-color: var(--bg-primary);
+	border: var(--border);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: var(--transition);
+	box-shadow: 4px 4px 0px var(--accent);
+}
+
+.testimonial-prev:hover,
+.testimonial-next:hover {
+	background-color: var(--accent);
+	color: var(--bg-primary);
+	box-shadow: 0 0 0 var(--accent);
+	transform: translate(3px, 3px);
+}
+
+.testimonial-dots {
+	display: flex;
+	gap: 0.8rem;
+}
+
+.dot {
+	width: 12px;
+	height: 12px;
+	background-color: var(--bg-primary);
+	border: var(--border);
+	border-radius: 50%;
+	cursor: pointer;
+	transition: var(--transition);
+}
+
+.dot.active {
+	background-color: var(--accent);
+	transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+	.testimonial-card {
+		padding: 1.5rem;
+		min-height: 400px;
+	}
+
+	.client-avatar {
+		width: 50px;
+		height: 50px;
+	}
+
+	.testimonial-content p {
+		padding-left: 1rem;
+		font-size: 1rem;
+	}
+}

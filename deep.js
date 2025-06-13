@@ -239,58 +239,127 @@ window.addEventListener('load', () => {
 	});
 });
 
-// Testimonials slider
-const testimonialsTrack = document.querySelector('.testimonials-track');
-const testimonialCards = document.querySelectorAll('.testimonial-card');
-const prevBtn = document.querySelector('.testimonial-prev');
-const nextBtn = document.querySelector('.testimonial-next');
-const dots = document.querySelectorAll('.dot');
+// // Testimonials slider
+// const testimonialsTrack = document.querySelector('.testimonials-track');
+// const testimonialCards = document.querySelectorAll('.testimonial-card');
+// const prevBtn = document.querySelector('.testimonial-prev');
+// const nextBtn = document.querySelector('.testimonial-next');
+// const dots = document.querySelectorAll('.dot');
 
-let currentIndex = 0;
-const totalSlides = testimonialCards.length;
+// let currentIndex = 0;
+// const totalSlides = testimonialCards.length;
 
-function updateSlider() {
-    testimonialsTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
-    
-    testimonialCards.forEach((card, index) => {
-        if (index === currentIndex) {
-            card.classList.add('active');
-        } else {
-            card.classList.remove('active');
-        }
-    });
-    
-    dots.forEach((dot, index) => {
-        if (index === currentIndex) {
-            dot.classList.add('active');
-        } else {
-            dot.classList.remove('active');
-        }
-    });
-}
+// function updateSlider() {
+// 	testimonialsTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
 
-prevBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-    updateSlider();
-});
+// 	testimonialCards.forEach((card, index) => {
+// 		if (index === currentIndex) {
+// 			card.classList.add('active');
+// 		} else {
+// 			card.classList.remove('active');
+// 		}
+// 	});
 
-nextBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % totalSlides;
-    updateSlider();
-});
+// 	dots.forEach((dot, index) => {
+// 		if (index === currentIndex) {
+// 			dot.classList.add('active');
+// 		} else {
+// 			dot.classList.remove('active');
+// 		}
+// 	});
+// }
 
-dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-        currentIndex = index;
-        updateSlider();
-    });
-});
+// prevBtn.addEventListener('click', () => {
+// 	currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+// 	updateSlider();
+// });
+
+// nextBtn.addEventListener('click', () => {
+// 	currentIndex = (currentIndex + 1) % totalSlides;
+// 	updateSlider();
+// });
+
+// dots.forEach((dot, index) => {
+// 	dot.addEventListener('click', () => {
+// 		currentIndex = index;
+// 		updateSlider();
+// 	});
+// });
 
 // Auto slide every 5 seconds
-setInterval(() => {
-    currentIndex = (currentIndex + 1) % totalSlides;
-    updateSlider();
-}, 5000);
+// setInterval(() => {
+// 	currentIndex = (currentIndex + 1) % totalSlides;
+// 	updateSlider();
+// }, 5000);
 
 // Initialize slider
-updateSlider();
+// updateSlider();
+// Добавить в конец deep.js
+
+function initTrustedAnimation() {
+	const track = document.querySelector('.trusted-track');
+	if (!track) return;
+
+	// Рассчитываем ширину одного элемента + отступ
+	const itemWidth = 180; // соответствует CSS ширине trusted-item
+	const gap = 32; // соответствует gap в CSS
+
+	// Клонируем все элементы для бесконечной анимации
+	const items = track.querySelectorAll('.trusted-item');
+	items.forEach(item => {
+		const clone = item.cloneNode(true);
+		track.appendChild(clone);
+	});
+
+	// Общая ширина оригинальных элементов (без клонов)
+	const totalWidth = (itemWidth + gap) * items.length;
+
+	// Создаем анимацию GSAP
+	const animation = gsap.to(track, {
+		x: -totalWidth,
+		duration: 20,
+		ease: "none",
+		repeat: -1,
+		modifiers: {
+			x: gsap.utils.unitize(x => parseFloat(x) % totalWidth)
+		}
+	});
+
+	// Останавливаем анимацию по умолчанию
+	animation.pause();
+
+	// Переменная для хранения последнего направления скролла
+	let lastScrollDirection = 0;
+	let lastScrollY = window.scrollY;
+
+	// Обработчик скролла
+	window.addEventListener('scroll', () => {
+		const currentScrollY = window.scrollY;
+		const scrollDirection = currentScrollY > lastScrollY ? 1 : -1;
+
+		// Обновляем направление только если оно изменилось
+		if (scrollDirection !== lastScrollDirection) {
+			lastScrollDirection = scrollDirection;
+
+			// Изменяем направление анимации
+			gsap.to(track, {
+				timeScale: scrollDirection,
+				duration: 0.5,
+				ease: "power2.out"
+			});
+
+			// Запускаем анимацию, если она была остановлена
+			if (animation.paused()) {
+				animation.play();
+			}
+		}
+
+		lastScrollY = currentScrollY;
+	});
+
+	// Запускаем анимацию при загрузке
+	animation.play();
+}
+
+// Инициализация после загрузки
+window.addEventListener('load', initTrustedAnimation);
